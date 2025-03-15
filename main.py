@@ -41,16 +41,16 @@ if __name__ == "__main__":
     print(gstreamer_pipeline(capture_width,capture_height,display_width,display_height,framerate,flip_method))
 
 
-    cap = CV2.VideoCapture(gstreamer_pipeline(flip_method=0), CV2.CAP_GSTREAMER)
+    cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
 
     if cap.isOpened():
-        window_handle = CV2.namedWindow("CSI Camera", CV2.WINDOW_AUTOSIZE)
+        window_handle = cv2.namedWindow("CSI Camera", cv2.WINDOW_AUTOSIZE)
 
-        while CV2.getWindowProperty("CSI Camera", 0) >= 0:
+        while cv2.getWindowProperty("CSI Camera", 0) >= 0:
             ret_val, img = cap.read()
-            CV2.imshow("CSI Camera", img)
+            cv2.imshow("CSI Camera", img)
 
-            keyCode = CV2.waitKey(30) & 0xFF
+            keyCode = cv2.waitKey(30) & 0xFF
             if keyCode == 27:
                 break
 
