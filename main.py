@@ -1,4 +1,4 @@
-import CV2
+import cv2
 
 def gstreamer_pipeline(
     capture_width=1280, 
